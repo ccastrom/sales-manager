@@ -1,0 +1,51 @@
+create database bdVentas;
+-- drop database bdVentas;
+CREATE TABLE customer(
+	id INTEGER PRIMARY KEY,
+	customerName VARCHAR(50),
+	phone INT,
+	address VARCHAR(50)
+); -- SELECT * FROM customer
+
+INSERT INTO customer VALUES(NULL,'Cristobal',444,'Villa los heroes');
+INSERT INTO customer VALUES(NULL,'Claudio',222,'Augusto Figueroa');
+INSERT INTO customer VALUES(NULL,'Benjamin',122,'Alto lo Castillo');
+
+CREATE TABLE easterBread(
+	id	INTEGER PRIMARY KEY,
+	valueBread INT,
+	elabDate datetime default current_timestamp
+); -- SELECT * FROM easterBread;
+INSERT INTO easterBread VALUES(NULL,7500,date('now'));
+INSERT INTO easterBread VALUES(NULL,6000,date('now'));
+INSERT INTO easterBread VALUES(NULL,8000,date('now'));
+
+
+CREATE TABLE ebType(
+	id INTEGER PRIMARY KEY,
+    typeBread VARCHAR(20),
+    fk_id_easterBread INT,
+    FOREIGN KEY(fk_id_easterBread) REFERENCES easterBread(id)
+); -- SELECT * FROM ebType;
+INSERT INTO ebType VALUES (NULL,'Tradicional',1);
+INSERT INTO ebType VALUES (NULL,'Nuez',2);
+INSERT INTO ebType VALUES (NULL,'Nuez y Almendras',3);
+
+
+CREATE TABLE sale(
+	id INTEGER PRIMARY KEY,
+	id_customer INT,
+	id_easterBread INT,
+	fechaVenta datetime default current_timestamp,
+	FOREIGN KEY(id_customer) REFERENCES customer(id),
+	FOREIGN KEY(id_easterBread) REFERENCES easterBread(id)
+); -- select * from sale
+
+INSERT INTO sale VALUES(NULL,2,1,date('now'));
+INSERT INTO sale VALUES(NULL,3,1,date('now'));
+INSERT INTO sale VALUES(NULL,1,3,date('now'));
+
+
+SELECT c.customerName,c.phone,eb.valueBread,s.fechaVenta, teb.typeBread
+FROM sale s,customer c,easterBread eb,ebType teb
+WHERE c.id=s.id_customer AND eb.id=s.id_easterBread AND eb.id=teb.fk_id_easterBread;
