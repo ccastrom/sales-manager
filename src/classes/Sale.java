@@ -8,7 +8,7 @@ public class Sale {
     private int id;
     private int fk_id_customer;
     private int fk_id_easterBread;
-    private Date saleDate;
+    private String saleDate;
 
     public Sale() {
     }
@@ -37,11 +37,11 @@ public class Sale {
         this.fk_id_easterBread = fk_id_easterBread;
     }
 
-    public Date getSaleDate() {
+    public String getSaleDate() {
         return saleDate;
     }
 
-    public void setSaleDate(Date saleDate) {
+    public void setSaleDate(String saleDate) {
         this.saleDate = saleDate;
     }
     
