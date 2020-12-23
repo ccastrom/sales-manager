@@ -1,14 +1,41 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package classes;
 
-/**
- *
- * @author francisco
- */
+import java.sql.Date;
+
+
+
 public class EasterBread {
+     private int id;
+     private int breadValue;
+     private Date elabDate;
+
+    public EasterBread() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getBreadValue() {
+        return breadValue;
+    }
+
+    public void setBreadValue(int breadValue) {
+        this.breadValue = breadValue;
+    }
+
+    public Date getElabDate() {
+        return elabDate;
+    }
+
+    public void setElabDate(Date elabDate) {
+        this.elabDate = elabDate;
+    }
+     
     
 }
