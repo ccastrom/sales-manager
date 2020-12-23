@@ -11,12 +11,18 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Controller {
 
     public java.sql.Connection connect() {
-        // SQLite connection string
-        String url = "jdbc:sqlite:\\home\\francisco\\bdVentas.db";
+        try {
+            Class.forName("org.sqlite.JDBC");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String url = "jdbc:sqlite:/home/francisco/bdVentas.db";
         java.sql.Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
