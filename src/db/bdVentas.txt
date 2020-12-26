@@ -34,18 +34,27 @@ INSERT INTO ebType VALUES (NULL,'Nuez y Almendras',3);
 
 CREATE TABLE sale(
 	id INTEGER PRIMARY KEY,
-	id_customer INT,
-	id_easterBread INT,
+	fk_id_customer INT,
+	fk_id_easterBread INT,
+        fk_id_type INT,
 	fechaVenta datetime default current_timestamp,
-	FOREIGN KEY(id_customer) REFERENCES customer(id),
-	FOREIGN KEY(id_easterBread) REFERENCES easterBread(id)
+	FOREIGN KEY(fk_id_customer) REFERENCES customer(id),
+	FOREIGN KEY(fk_id_easterBread) REFERENCES easterBread(id),
+        FOREIGN KEY(fk_id_type) REFERENCES ebType(id)
 ); -- select * from sale
 
-INSERT INTO sale VALUES(NULL,2,1,date('now'));
-INSERT INTO sale VALUES(NULL,3,1,date('now'));
-INSERT INTO sale VALUES(NULL,1,3,date('now'));
+INSERT INTO sale VALUES(NULL,2,1,1,date('now'));
+INSERT INTO sale VALUES(NULL,3,1,1,date('now'));
+INSERT INTO sale VALUES(NULL,1,3,3,date('now'));
+INSERT INTO sale VALUES(NULL,1,2,2,date('now'));
 
 
 SELECT c.customerName,c.phone,eb.valueBread,s.fechaVenta, teb.typeBread
 FROM sale s,customer c,easterBread eb,ebType teb
 WHERE c.id=s.id_customer AND eb.id=s.id_easterBread AND eb.id=teb.fk_id_easterBread;
+
+SELECT customer.id,ebType.id,easterBread.id,fechaVenta
+FROM sale
+INNER JOIN customer ON sale.fk_id_customer=customer.id
+INNER JOIN ebType ON sale.fk_id_type=ebType.id
+INNER JOIN easterBread ON sale.fk_id_easterBread=easterBread.id;

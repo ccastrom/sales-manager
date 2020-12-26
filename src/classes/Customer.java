@@ -10,6 +10,11 @@ public class Customer {
 
     public Customer() {
     }
+
+    public Customer(String customerName) {
+        this.customerName = customerName;
+    }
+    
     
 
     public int getId() {

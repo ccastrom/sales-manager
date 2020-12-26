@@ -5,8 +5,10 @@
  */
 package app;
 
-import TableModel.TMGeneral;
+
+import TableModel.TableSales;
 import classes.Customer;
+import classes.Sale;
 import controller.Controller;
 import java.awt.Color;
 import java.awt.Font;
@@ -261,9 +263,9 @@ public class App extends javax.swing.JFrame {
 
         Controller c = new Controller();
 
-        List<Customer> lista = c.getCustomers();
+        List<Sale> lista = c.getSales();
 
-        TMGeneral model = new TMGeneral(lista);
+        TableSales model = new TableSales(lista);
         JTableHeader tableHeader = table.getTableHeader();
         tableHeader.setBackground(new Color(125, 21, 56));
         tableHeader.setForeground(Color.white);

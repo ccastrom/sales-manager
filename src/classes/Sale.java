@@ -8,6 +8,7 @@ public class Sale {
     private int id;
     private int fk_id_customer;
     private int fk_id_easterBread;
+    private int fk_id_type;
     private String saleDate;
 
     public Sale() {
@@ -36,6 +37,15 @@ public class Sale {
     public void setFk_id_easterBread(int fk_id_easterBread) {
         this.fk_id_easterBread = fk_id_easterBread;
     }
+
+    public int getFk_id_type() {
+        return fk_id_type;
+    }
+
+    public void setFk_id_type(int fk_id_type) {
+        this.fk_id_type = fk_id_type;
+    }
+    
 
     public String getSaleDate() {
         return saleDate;
