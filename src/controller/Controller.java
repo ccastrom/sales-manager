@@ -6,6 +6,7 @@ import classes.Sale;
 import classes.Type;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -155,6 +156,20 @@ public class Controller {
         }
         return lista;
 
+    }
+        public void createCustomer(Customer c) {
+
+        String sql = "INSERT INTO customer VALUES(NULL,'"+c.getCustomerName()+"',"
+                + "'"+c.getPhone()+"','"+c.getAddress()+"');";
+
+        try (Connection conn = this.connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            System.out.println("INSERT COMPLETE");
+
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
     
 

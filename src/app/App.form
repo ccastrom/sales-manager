@@ -50,7 +50,7 @@
                       <Component id="jPanelCustomer" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jPanelEasterBread" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="90" max="32767" attributes="0"/>
+                  <EmptySpace pref="87" max="32767" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
               </Group>
@@ -69,7 +69,7 @@
                       </Group>
                       <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="140" max="32767" attributes="0"/>
+                  <EmptySpace pref="158" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -158,13 +158,13 @@
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="txtPhone" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="txtAddress" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="12" max="32767" attributes="0"/>
-                      <Component id="btnCreateCustomer" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnCreateCustomer" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -193,8 +193,11 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnCreateCustomer">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ingresar"/>
+                <Property name="text" type="java.lang.String" value="Crear Cliente"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateCustomerActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -224,7 +227,7 @@
                           <Component id="txtEasterBreadValue" alignment="0" pref="187" max="32767" attributes="0"/>
                           <Component id="txtEasterBreadDate" alignment="0" pref="187" max="32767" attributes="0"/>
                           <Component id="jLabel7" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
-                          <Component id="btnCreateEasterBread" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCreateSale" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="comboEasterBreadType" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -248,7 +251,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="comboEasterBreadType" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="7" max="32767" attributes="0"/>
-                      <Component id="btnCreateEasterBread" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnCreateSale" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -274,7 +277,7 @@
                 <Property name="text" type="java.lang.String" value="Tipo de pan:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnCreateEasterBread">
+            <Component class="javax.swing.JButton" name="btnCreateSale">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ingresar"/>
               </Properties>

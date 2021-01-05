@@ -21,7 +21,9 @@ public class App extends javax.swing.JFrame {
     public App() {
         initComponents();
         cargarTabla();
+          
     }
+    public Controller controller = new Controller();
 
    
     @SuppressWarnings("unchecked")
@@ -45,7 +47,7 @@ public class App extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtEasterBreadDate = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        btnCreateEasterBread = new javax.swing.JButton();
+        btnCreateSale = new javax.swing.JButton();
         comboEasterBreadType = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
@@ -85,7 +87,12 @@ public class App extends javax.swing.JFrame {
 
         jLabel4.setText("DIreccion:");
 
-        btnCreateCustomer.setText("Ingresar");
+        btnCreateCustomer.setText("Crear Cliente");
+        btnCreateCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateCustomerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelCustomerLayout = new javax.swing.GroupLayout(jPanelCustomer);
         jPanelCustomer.setLayout(jPanelCustomerLayout);
@@ -114,13 +121,13 @@ public class App extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCreateCustomer)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanelEasterBread.setBackground(new java.awt.Color(255, 255, 255));
@@ -132,7 +139,7 @@ public class App extends javax.swing.JFrame {
 
         jLabel7.setText("Tipo de pan:");
 
-        btnCreateEasterBread.setText("Ingresar");
+        btnCreateSale.setText("Ingresar");
 
         comboEasterBreadType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -147,7 +154,7 @@ public class App extends javax.swing.JFrame {
                     .addComponent(txtEasterBreadValue, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
                     .addComponent(txtEasterBreadDate, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCreateEasterBread)
+                    .addComponent(btnCreateSale)
                     .addComponent(jLabel6)
                     .addComponent(comboEasterBreadType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(91, Short.MAX_VALUE))
@@ -168,7 +175,7 @@ public class App extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(comboEasterBreadType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                .addComponent(btnCreateEasterBread)
+                .addComponent(btnCreateSale)
                 .addContainerGap())
         );
 
@@ -195,7 +202,7 @@ public class App extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanelEasterBread, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69))
         );
@@ -210,7 +217,7 @@ public class App extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanelEasterBread, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -226,6 +233,26 @@ public class App extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCreateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateCustomerActionPerformed
+     
+        Customer c;
+       String name;
+       int phone;
+       String address;
+       
+       name=txtCustomerName.getText();
+       phone=Integer.parseInt(txtPhone.getText());
+       address=txtAddress.getText();
+       c=new Customer(name, phone, address);
+       controller.createCustomer(c);
+       txtCustomerName.setText(null);
+       txtPhone.setText(null);
+       txtAddress.setText(null);
+       
+       
+       
+    }//GEN-LAST:event_btnCreateCustomerActionPerformed
 
     
     public static void main(String args[]) {
@@ -261,9 +288,9 @@ public class App extends javax.swing.JFrame {
     }
      private void cargarTabla() {
 
-        Controller c = new Controller();
+       
 
-        List<Sale> lista = c.getSales();
+        List<Sale> lista = controller.getSales();
 
         TableSales model = new TableSales(lista);
         JTableHeader tableHeader = table.getTableHeader();
@@ -278,7 +305,7 @@ public class App extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateCustomer;
-    private javax.swing.JButton btnCreateEasterBread;
+    private javax.swing.JButton btnCreateSale;
     private javax.swing.JComboBox<String> comboEasterBreadType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
